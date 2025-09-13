@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rafi Uzzaman khan Rafi's Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#03040a;--card:#071018;--accent:#00ff9c;--muted:#8f9aa6;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:#e6eef6;overflow-x:hidden;padding:28px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;scroll-behavior:smooth;}
+.matrix{position:fixed;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,#001017 0%, rgba(0,0,0,0) 40%);}
+.matrix canvas{width:100%;height:100%;display:block;opacity:0.12;filter:blur(0.4px);}
+.container{max-width:1100px;margin:0 auto;position:relative;z-index:2;padding-top:140px;}
+header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;position:fixed;top:0;left:0;width:100%;background:var(--bg);padding:20px 28px;z-index:999;box-shadow:0 4px 20px rgba(0,255,156,0.1);}
+.logo{display:flex;gap:12px;align-items:center;}
+.mark{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#002b1f,#004135);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono';font-weight:700;color:var(--accent);box-shadow:0 8px 40px rgba(0,255,156,0.06);}
+nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:500;cursor:pointer;}
+nav a:hover{color:var(--accent);}
+.section-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);padding:28px;margin-bottom:40px;border-radius:14px;box-shadow:0 8px 40px rgba(2,6,23,0.7);opacity:0;transform:translateY(30px);animation:fadeIn 1s forwards;}
+@keyframes fadeIn{to{opacity:1;transform:translateY(0);}}
+h2{color:var(--accent);margin-bottom:16px;}
+.progress-bar{background:rgba(255,255,255,0.03);border-radius:8px;height:16px;margin-bottom:12px;position:relative;overflow:hidden;}
+.progress-fill{background:var(--accent);height:100%;border-radius:8px;width:0;transition:width 1.2s;}
+.progress-label{position:absolute;right:10px;top:0;font-size:12px;color:var(--muted);line-height:16px;}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+.proj{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.02);transition:transform .28s ease,box-shadow .28s ease,opacity .5s;opacity:0;transform:translateY(20px);}
+.proj.show{opacity:1;transform:translateY(0);}
+.proj:hover{transform:translateY(-6px);box-shadow:0 18px 60px rgba(0,255,156,0.06);}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+.tag{font-family:'JetBrains Mono';font-size:14px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02);color:#00ff9f;transition:0.3s;}
+.tag:hover{box-shadow:0 0 12px #00ff9f,0 0 24px #00ff9f;}
+.hero-text{font-size:28px;line-height:1.2;color:#e6eef6;}
+.hero-typed{font-family:'JetBrains Mono',monospace;color:var(--accent);display:inline-block;white-space:pre;}
+.cursor{display:inline-block;width:10px;background:var(--accent);margin-left:6px;height:24px;vertical-align:middle;animation:blink 700ms steps(1) infinite;}
+@keyframes blink{50%{opacity:0}}
+footer{margin-top:26px;display:flex;justify-content:space-between;align-items:center;color:var(--muted);}
+@media (max-width:900px){.projects{grid-template-columns:1fr}nav{display:none}}
+</style>
+</head>
+<body>
+
+<div class="matrix"><canvas id="matrixCanvas"></canvas></div>
+<div class="container">
+
+<header>
+  <div class="logo">
+    <div class="mark pulse">Rk</div>
+    <div>
+      <div style="font-weight:700">Rafi Uzzaman Khan Rafi</div>
+      <div class="muted" style="font-size:13px">Jr. Web Application Pentester | Jr. Red Team Analyst (Intern)  | Bug Hunter</div>
+    </div>
+  </div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#Experiance">Experiance</a>
+    <a href="#projects">Projects</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="section-card" style="animation-delay:0s;">
+  <h2 class="hero-text">Hi, I'm <span style="color:var(--accent)">Rafi Uzzmana Khan Rafi</span> — Jr.Pentester</h2>
+  <div class="hero-typed" id="typedLine"></div>
+</section>
+
+<!-- About -->
+<section id="about" class="section-card" style="animation-delay:0.2s;">
+  <h2>About Me</h2>
+  <p>Hi, I’m Rafi Uzzaman Khan, a passionate Jr Pentester , Jr Red Team Analyst and Bug Hunter. I love diving deep into the world of cybersecurity, exploring vulnerabilities, and understanding how systems can be protected from real-world attacks.
+
+With hands-on experience in web application penetration testing, subdomain enumeration, and cloud security, I enjoy combining manual techniques and automated tools to find hidden flaws. My curiosity drives me to constantly learn new exploits, tools, and methodologies, ensuring that I stay ahead in the cyber battlefield.
+
+When I’m not hacking (ethically, of course 😎), I love experimenting with tech projects, portfolio websites, and exploring new ways to visualize data and security insights. I believe in turning every challenge into a learning opportunity and leaving systems more secure than I found them.
+
+Let’s secure the digital world, one vulnerability at a time.</p>
+</section>
+
+<!-- Skills -->
+<section id="skills" class="section-card" style="animation-delay:0.4s;">
+  <h2>Skills</h2>
+  <div class="progress-bar"><div class="progress-fill" data-width="70%"></div><span class="progress-label">Web Pentesting - 70%</span></div>
+  <div class="progress-bar"><div class="progress-fill" data-width="60%"></div><span class="progress-label">SQL Injection - 60%</span></div>
+  <div class="progress-bar"><div class="progress-fill" data-width="30%"></div><span class="progress-label">Python & Bash - 30%</span></div>
+  <div class="progress-bar"><div class="progress-fill" data-width="45%"></div><span class="progress-label">Cloud Security - 45%</span></div>
+  <div class="progress-bar"><div class="progress-fill" data-width="80%"></div><span class="progress-label">Burp Suite - 80%</span></div>
+</section>
+
+<!-- Experiance -->
+<section id="Experiance" class="section-card" style="animation-delay:0.6s;">
+  <h2>Experiance</h2>
+  <div class="projects">
+    <div class="proj card"><h3>Jr.Pentester</h3><div class="muted">Currently working as Jr pentester at Byte Capsule</div><div class="tags"><div class="tag">-</div><div class="tag">-</div><div class="tag">-</div></div></div>
+    <div class="proj card"><h3>Jr Red Team Analyst(Intern)</h3><div class="muted">Jr Red Team Analyst (Intern) at Byte Capsule</div><div class="tags"><div class="tag">-</div><div class="tag">-</div><div class="tag">-</div></div></div>
+</section>
+</section>
+
+
+<!-- Projects -->
+<section id="projects" class="section-card" style="animation-delay:0.6s;">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="proj card"><h3>Master-SubFinder</h3><div class="muted">Passive + Active subdomain enumeration tool (Python)</div><div class="tags"><div class="tag">Python</div><div class="tag">OSINT</div><div class="tag">Automation</div></div></div>
+    <div class="proj card"><h3>ORDC</h3><div class="muted">Automated Open Redierection Tester</div><div class="tags"><div class="tag">ORDC</div><div class="tag">-</div></div></div>
+  </div>
+</section>
+
+<!-- Certificates -->
+<section id="certificates" class="section-card" style="animation-delay:0.8s;">
+  <h2>Certificates</h2>
+  <div class="projects">
+    <div class="proj card"><h3>PBAWST</h3><div class="muted">Professional Bug Hunting & Advanced Web Application Security Testing From Byte capsule
+        <p>Here Is My Certificate: <a href="https://drive.google.com/file/d/1C-WqNA0VbcjZSkOVNQspmuq-YAmCSXjw/view?usp=sharing" style="color:var(--accent)">PDF</a></p>
+    </div></div>
+    <div class="proj card"><h3>--</h3><div class="muted">---</div></div>
+  </div>
+</section>
+
+<!-- Resume -->
+<section id="resume" class="section-card" style="animation-delay:1s;">
+  <h2>Resume</h2>
+  <p>Download my resume: <a href="https://drive.google.com/file/d/1C-WqNA0VbcjZSkOVNQspmuq-YAmCSXjw/view?usp=sharing" style="color:var(--accent)">PDF</a></p>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="section-card" style="animation-delay:1.2s;">
+  <h2>Contact</h2>
+  <p>Email: <a href="rafiuzzamankhanrafi@gmail.com" style="color:var(--accent)">rafiuzzamankhanrafi@gmail.com</a></p>
+  <p>LinkedIn: <a href="www.linkedin.com/in/rafiuzzamankhanrafi" style="color:var(--accent)">www.linkedin.com/in/rafiuzzamankhanrafi</a></p>
+  <p>Telegram: <a href="https://t.me/Cyb3rGh05tX" style="color:var(--accent)">https://t.me/Cyb3rGh05tX</a></p>
+</section>
+
+<footer>
+  <p>© 2025 Rafi Uzzaman Khan Rafi . <span style="color:var(--accent)">Cyb3rGh05tX</span></p>
+</footer>
+
+<script>
+// Matrix background
+const canvas = document.getElementById('matrixCanvas');
+const ctx = canvas.getContext('2d');
+function resize(){canvas.width=innerWidth;canvas.height=innerHeight;}
+window.addEventListener('resize',resize);
+resize();
+const cols=Math.floor(canvas.width/14);
+const drops=Array(cols).fill(0);
+const chars='01あいうえおアイウエオ漢字<>/\\{}[]()#%$@*+-=;:.,';
+function draw(){
+  ctx.fillStyle='rgba(0,0,0,0.06)';
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle='#00ff9c';
+  ctx.font='12px JetBrains Mono, monospace';
+  for(let i=0;i<drops.length;i++){
+    const text = chars.charAt(Math.floor(Math.random()*chars.length));
+    ctx.fillText(text,i*14,drops[i]*14);
+    if(drops[i]*14>canvas.height && Math.random()>0.975) drops[i]=0;
+    drops[i]++;
+  }
+}
+setInterval(draw,55);
+
+// Typing animation
+const lines=['Jr. Red Team Analyst • Jr.Pentester • Bug Hunter','Recon • OSINT • Automation','I craft reports, find bugs, and level up systems.'];
+const typed=document.getElementById('typedLine');let li=0,ci=0;
+function type(){if(li>=lines.length)li=0;const line=lines[li];typed.textContent=line.slice(0,ci);const cursor=document.createElement('span');cursor.className='cursor';typed.appendChild(cursor);ci++;if(ci>line.length){ci=0;li++;setTimeout(type,1400);}else{setTimeout(type,60+Math.random()*60);}}
+type();
+
+// Skill animation
+window.addEventListener('load',()=>{document.querySelectorAll('.progress-fill').forEach(bar=>{bar.style.width=bar.getAttribute('data-width');});});
+
+// Smooth offset scroll for fixed header
+document.querySelectorAll('nav a').forEach(link=>{
+  link.addEventListener('click',function(e){
+    e.preventDefault();
+    const target=document.querySelector(this.getAttribute('href'));
+    const headerOffset=document.querySelector('header').offsetHeight + 10;
+    const elementPosition=target.getBoundingClientRect().top + window.pageYOffset;
+    const offsetPosition=elementPosition - headerOffset;
+    window.scrollTo({top:offsetPosition,behavior:'smooth'});
+  });
+});
+
+// Show project cards on scroll
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){entry.target.classList.add('show');}
+  });
+},{threshold:0.2});
+document.querySelectorAll('.proj').forEach(p=>observer.observe(p));
+
+</script>
+</body>
+</html>
